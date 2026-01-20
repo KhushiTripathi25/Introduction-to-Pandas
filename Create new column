@@ -1,0 +1,48 @@
+Create a New Column:
+DataFrame employees
++-------------+--------+
+| Column Name | Type.  |
++-------------+--------+
+| name        | object |
+| salary      | int.   |
++-------------+--------+
+A company plans to provide its employees with a bonus. Write a solution to create a new column name bonus that contains the doubled values of the salary column. The result format is in the following example.
+Example 1:
+
+Input:
+DataFrame employees
++---------+--------+
+| name    | salary |
++---------+--------+
+| Piper   | 4548   |
+| Grace   | 28150  |
+| Georgia | 1103   |
+| Willow  | 6593   |
+| Finn    | 74576  |
+| Thomas  | 24433  |
++---------+--------+
+Output:
++---------+--------+--------+
+| name    | salary | bonus  |
++---------+--------+--------+
+| Piper   | 4548   | 9096   |
+| Grace   | 28150  | 56300  |
+| Georgia | 1103   | 2206   |
+| Willow  | 6593   | 13186  |
+| Finn    | 74576  | 149152 |
+| Thomas  | 24433  | 48866  |
++---------+--------+--------+
+Explanation: 
+A new column bonus is created by doubling the value in the column salary.
+
+Output:
+import pandas as pd
+
+def createBonusColumn(employees: pd.DataFrame) -> pd.DataFrame:
+    employees['bonus'] = employees['salary'] * 2
+    return employees  
+
+Explanation:
+1. pandas Series: a one dimensional data structure provided by the pandas library. A Series can be thought of as a column of data in a pandas DataFrame. A Series can contain of a wide-range of data types, however they are homogenous, meaning that all elements within one pandas Series must be of the same data type. Like DataFrames, Series are indexed and can be labeled for easy data retrieval.
+2. pandas DataFrame: similar to a SQL table, a DataFrame is a collection of Series displayed as columns. They are size-mutable, meaning we can add, delete, and alter values, rows, and columns in a DataFrame.
+3. column-wise operations: operations that can be performed on each individual element in a DataFrame Series. A few examples of types of column-wise operations are arithmetic operations, aggregate functions, filtering and conditional operations, and string operations.
